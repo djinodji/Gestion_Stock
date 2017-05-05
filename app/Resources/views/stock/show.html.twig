@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Stock</h1>
+<div id="content">
+    <table class="table">
+        <tbody>
+            <tr hidden class="thead-inverse">
+                <th>Id</th>
+                <td>{{ stock.id }}</td>
+            </tr>
+            <tr>
+                <th>Produit</th>
+                <td>{{ stock.productId }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ stock.quantite }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+    <button type="button" class="btn btn-primary" onclick="location.href = '{{ path('stock_index') }}';">Voir la liste</button>
+    <button type="button" class="btn btn-primary" onclick="location.href = '{{ path('stock_edit', { 'id': stock.id }) }}';">Modifier</button>
+    <br/>
+
+            {{ form_start(delete_form) }}
+    <br/>
+
+
+    <input class="btn btn-danger" type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+
+</div>
+{% endblock %}

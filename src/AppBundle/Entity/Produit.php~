@@ -1,0 +1,61 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Produit
+ *
+ * @ORM\Table(name="produit", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_29A5EC27AEA34913", columns={"reference"})})
+ * @ORM\Entity
+ */
+class Produit
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="reference", type="string", length=255, nullable=false)
+     */
+    private $reference;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="libelle", type="string", length=255, nullable=false)
+     */
+    private $libelle;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="prixdachat", type="integer", nullable=false)
+     */
+    private $prixdachat;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="prixdevente", type="integer", nullable=false)
+     */
+    private $prixdevente;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tauxdeTVA", type="integer", nullable=false)
+     */
+    private $tauxdetva;
+
+
+}
+

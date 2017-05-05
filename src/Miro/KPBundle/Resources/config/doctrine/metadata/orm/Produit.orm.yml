@@ -1,0 +1,46 @@
+Produit:
+    type: entity
+    table: produit
+    uniqueConstraints:
+        UNIQ_29A5EC27AEA34913:
+            columns:
+                - reference
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        reference:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        libelle:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        prixdachat:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        prixdevente:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        tauxdetva:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: tauxdeTVA
+    lifecycleCallbacks: {  }

@@ -1,0 +1,44 @@
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div id="content">
+    <div class="wrapper">
+        <form action="{{ path('login') }}" method="post" class="form-signin">
+            <h2 class="form-signin-heading">Please login</h2>
+            <input type="text" class="form-control" id="username" name="_username" placeholder="Email Address" required="" autofocus="" />
+            <br/>
+            <input type="password" class="form-control" id="password" name="_password" placeholder="Password" required=""/>
+          <br/>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        </form>
+    </div>
+
+</div>
+</body>
+<style>
+    body {
+        background-color: white;
+        background-image: url({{ asset('bg.jpg') }} ) ;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    #content{
+        background-color: rgba(0, 0, 0, .5);
+        padding: 20px;
+        width: 52%;
+        margin: auto;
+        color: white;
+        margin-top: 15%;
+    }
+    </style>

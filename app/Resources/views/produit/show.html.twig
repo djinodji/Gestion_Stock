@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Produit</h1>
+<div id="content">
+    <table class="table">
+        <tbody>
+            <tr class="thead-inverse">
+                <th>Id</th>
+                <td>{{ produit.id }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ produit.reference }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ produit.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Prixdachat</th>
+                <td>{{ produit.prixdachat }}</td>
+            </tr>
+            <tr>
+                <th>Prixdevente</th>
+                <td>{{ produit.prixdevente }}</td>
+            </tr>
+            <tr>
+                <th>Tauxdetva</th>
+                <td>{{ produit.tauxdeTVA }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+    <button type="button" class="btn btn-primary" onclick="location.href = '{{ path('produit_index') }}';">Voir la liste</button>
+    <button type="button" class="btn btn-primary" onclick="location.href = '{{ path('produit_edit', { 'id': produit.id }) }}';">Modifier</button>
+    <br/>
+
+    {{ form_start(delete_form) }}
+    <br/>
+
+
+    <input class="btn btn-danger" type="submit" value="Delete">
+    {{ form_end(delete_form) }}
+</div>
+
+{% endblock %}

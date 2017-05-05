@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Stocks list</h1>
+
+<div id="content">
+    <table class="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th style="display: none">Id</th>
+                <th>Produit</th>
+                <th>Quantite</th>
+                <th></th>
+                <th></th>
+                <th>
+                    <button type="button" class="btn btn-primary" onclick="location.href = '{{ path('stock_new') }}';">Ajouter</button>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stock in stocks %}
+            <tr>
+                <td style="display: none"><a href="{{ path('stock_show', { 'id': stock.id }) }}">{{ stock.id }}</a></td>
+                <td>{{ stock.productId }}</td>
+                <td>{{ stock.quantite }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="location.href = '{{ path('stock_show', { 'id': stock.id }) }}';">Voir</button>
+
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="location.href = '{{ path('stock_edit', { 'id': stock.id }) }}';">Modifier</button>
+
+
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+{% endblock %}

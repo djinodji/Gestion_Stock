@@ -1,0 +1,34 @@
+Stock:
+    type: entity
+    table: stock
+    indexes:
+        productId:
+            columns:
+                - productId
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        quantite:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    manyToOne:
+        productid:
+            targetEntity: Produit
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                productId:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

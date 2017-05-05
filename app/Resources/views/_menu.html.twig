@@ -1,0 +1,21 @@
+<div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    
+    <ul style="width: 85%;" class="nav navbar-nav">
+        <li class="{{app.request.get('_route')=='homepage'? 'active'}}"><a href="{{ path('homepage') }}">Home</a></li>
+	 <li class="{{app.request.get('_route')=='produit_index'? 'active'}}"><a href="{{ path('produit_index' ) }}" >Liste des produits</a></li>
+        {% if (is_granted('ROLE_ADMIN') or is_granted('ROLE_RESPONSABLE') )%}
+            <li class="{{app.request.get('_route')=='produit_new'? 'active'}}"><a href="{{ path('produit_new' ) }}" >Creér un produit</a></li>
+
+        {% endif %}
+        <li class="{{app.request.get('_route')=='stock_index'? 'active'}}"><a href="{{ path('stock_index' ) }}" >Gerer le stock</a></li>
+
+
+    </ul>
+      <span style="color: white; right: 20px; margin-top: 5px;">{{ app.user.username }}</span>
+      <button style="margin-top: 5px;" type="button" class="btn btn-outline-danger btn-sm" onclick="location.href = '{{ path('logout') }}';">Déconnexion</button>
+  </div>
+</nav>
+
+</div>

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Produits list</h1>
+<div id="content">
+    <table class="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th style="display: none">Id</th>
+                <th>Reference</th>
+                <th>Libelle</th>
+                <th>Prixdachat</th>
+                <th>Prixdevente</th>
+                <th>Tauxdetva</th>
+                <th style=""></th>
+                <th style=""></th>
+                {% if (is_granted('ROLE_ADMIN') or is_granted('ROLE_RESPONSABLE') )%}
+                <th> <button type="button" class="btn btn-primary" onclick="location.href = '{{ path('produit_new') }}';">Ajouter</button>
+                </th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td style="display: none"><a href="{{ path('produit_show', { 'id': produit.id }) }}">{{ produit.id }}</a></td>
+                <td>{{ produit.reference }}</td>
+                <td>{{ produit.libelle }}</td>
+                <td>{{ produit.prixdachat }}</td>
+                <td>{{ produit.prixdevente }}</td>
+                <td>{{ produit.tauxdeTVA }}</td>
+
+                <td style="padding: 5px; width: 400px;">
+                    <button type="button" class="btn btn-primary" onclick="location.href = '{{ path('produit_show', { 'id': produit.id }) }}';">Voir</button>
+
+                </td>
+
+                <td  style="padding: 5px; width: 400px;">
+                    <button type="button" class="btn btn-primary" onclick="location.href = '{{ path('produit_edit', { 'id': produit.id }) }}';">Modifier</button>
+
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

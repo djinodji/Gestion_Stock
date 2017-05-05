@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Produit edit</h1>
+<div id="content">
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input class="btn btn-primary" type="submit" value="Enregistrer" />
+
+    <button type="button" class="btn btn-primary" onclick="location.href = '{{ path('produit_index') }}';">Voir la liste</button>
+
+    {{ form_end(edit_form) }}
+    {{ form_start(delete_form) }}
+    <br/>
+    <input class="btn btn-primary" type="submit" value="Supprimer">
+    {{ form_end(delete_form) }}
+
+</div>
+{% endblock %}

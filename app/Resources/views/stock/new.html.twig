@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Stock creation</h1>
+<div id="content">
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input class="btn btn-primary" type="submit" value="Enregistrer" />
+    {{ form_end(form) }}
+    <br/>
+    <button type="button" class="btn btn-primary" onclick="location.href = '{{ path('stock_index') }}';">Voir la liste</button>
+
+
+    </div>
+{% endblock %}
